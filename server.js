@@ -2,6 +2,7 @@ const express = require('express')
 const hbs = require('hbs')
 const fs = require('fs')
 
+const APP_PORT = process.env.PORT || 3001
 let app = express()
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -57,9 +58,6 @@ app.get('/bad', (req, res) => {
         errorMessage: 'bad request'
     })
 })
-
-//Config
-const APP_PORT = 3001
 
 app.listen(APP_PORT, () => {
     console.log(`App listening on port ${APP_PORT}`)
